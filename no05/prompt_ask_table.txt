@@ -1,0 +1,1 @@
+tasks.md の仕事を、このフォルダの tasks.db に SQLite の tasks 表として入れて。列は id・title・owner・status にして、owner は空のままにしておいて。

@@ -1,0 +1,9 @@
+# 表を作る1行
+sqlite3 tasks.db "CREATE TABLE tasks(id INTEGER PRIMARY KEY, title TEXT, owner TEXT, status TEXT);"
+
+# 仕事を1件入れる1行（1＝仕事の番号、c_to_f＝仕事の名前）
+sqlite3 tasks.db "INSERT INTO tasks(id,title) VALUES(1,'c_to_f');"
+
+# 取る1文（まだ誰の物でもないときだけ、自分の名前を書く。w1＝自分の名前、id=1＝取る仕事）
+# 1 が返ったら自分の仕事、0 なら誰かが先に取っている
+sqlite3 tasks.db "UPDATE tasks SET owner='w1', status='doing' WHERE id=1 AND owner IS NULL; SELECT changes();"
